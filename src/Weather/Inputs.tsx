@@ -6,17 +6,16 @@ type IformData = {
   city: string;
   lat: string;
   lon: string;
+  type: string;
 };
 
 export interface IInputsProps {
-  inputs: string;
-  handleSubmit: () => void;
+  handleSubmit: (event: any) => void;
   formData: IformData;
   setFormData: React.Dispatch<React.SetStateAction<IformData>>;
 }
 
 export default function Inputs({
-  inputs,
   handleSubmit,
   formData,
   setFormData,
@@ -26,7 +25,7 @@ export default function Inputs({
   }
   return (
     <form action="" onSubmit={handleSubmit} className="d-flex">
-      {inputs.split("/").map((item, idx) => {
+      {formData.type.split("/").map((item, idx) => {
         return (
           <div key={idx}>
             <label htmlFor={item} className="d-none"></label>

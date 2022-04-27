@@ -7,32 +7,30 @@ type IformData = {
   city: string;
   lat: string;
   lon: string;
+  type: string;
 };
 
 export interface ISearchFieldProps {
-  searchType: string;
   formData: IformData;
-  setSearchType: React.Dispatch<React.SetStateAction<string>>;
   setFormData: React.Dispatch<React.SetStateAction<IformData>>;
+  handleSubmit: (event: any) => void;
 }
 
 export default function SearchField({
-  searchType,
-  setSearchType,
   formData,
   setFormData,
+  handleSubmit,
 }: ISearchFieldProps) {
   function handleSearchChange(event: any) {
-    setSearchType(event.target.value);
     setFormData({
       zip: "",
       city: "",
       lat: "",
       lon: "",
+      type: event.target.value,
     });
   }
 
-  function handleSubmit() {}
   return (
     <div className="d-flex container">
       <select onChange={handleSearchChange} className="me-4">
@@ -41,7 +39,6 @@ export default function SearchField({
         <option value="lat/lon">Lat/Lon</option>
       </select>
       <Inputs
-        inputs={searchType}
         handleSubmit={handleSubmit}
         formData={formData}
         setFormData={setFormData}
