@@ -1,14 +1,6 @@
 import * as React from "react";
 import Inputs from "./Inputs";
-
-type IformData = {
-  [key: string]: string;
-  zip: string;
-  city: string;
-  lat: string;
-  lon: string;
-  type: string;
-};
+import { IformData } from "../types";
 
 export interface ISearchFieldProps {
   formData: IformData;
