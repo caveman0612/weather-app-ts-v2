@@ -5,15 +5,6 @@ import NavBar from "./Weather/NavBar";
 import SearchField from "./Weather/SearchField";
 import { IformData } from "./types";
 
-// type IformData = {
-//   [key: string]: string;
-//   zip: string;
-//   city: string;
-//   lat: string;
-//   lon: string;
-//   type: string;
-// };
-
 function App() {
   const [apiData, setApiData] = useState(null);
   const [formData, setFormData] = React.useState<IformData>({
